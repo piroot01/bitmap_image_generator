@@ -1,0 +1,2 @@
+#define BMP_HEADER_SIZE 14
+#define BMP_INFO_HEADER_SIZE 40
