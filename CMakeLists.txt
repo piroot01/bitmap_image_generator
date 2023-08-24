@@ -10,4 +10,6 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic")
 
 add_subdirectory(src)
 add_subdirectory(examples/simple_image)
+add_subdirectory(examples/black_and_white)
+add_subdirectory(examples/chunk)
 # Here will be placed other subdirectories
