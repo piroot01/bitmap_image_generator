@@ -28,4 +28,4 @@ std::array<unsigned char, BMP_INFO_HEADER_SIZE> BmpInfoHeader::get() const
 }
 
 
-BmpInfoHeader& BmpInfoHeader::operator=(const BmpInfoHeader& bmpInfoHeader) = default;
+BmpInfoHeader& BmpInfoHeader::operator=(const BmpInfoHeader& source) = default;

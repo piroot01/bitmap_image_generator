@@ -22,11 +22,11 @@ std::array<unsigned char, BMP_FILE_HEADER_SIZE> BmpFileHeader::get() const
     return bmpFileHeader;
 }
 
-BmpFileHeader& BmpFileHeader::operator=(const BmpFileHeader& bmpHeader)
+BmpFileHeader& BmpFileHeader::operator=(const BmpFileHeader& source)
 {
-    if (this == &bmpHeader)
+    if (this == &source)
         return *this;
-    _sizeOfBitmapFile = bmpHeader._sizeOfBitmapFile;
-    _pixelDataOffset = bmpHeader._pixelDataOffset;
+    _sizeOfBitmapFile = source._sizeOfBitmapFile;
+    _pixelDataOffset = source._pixelDataOffset;
     return *this;
 }
