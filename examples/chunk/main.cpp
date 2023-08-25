@@ -1,4 +1,4 @@
-#include "image_chunk/chunk.h"
+#include "chunk/chunk.h"
 #include <iostream>
 
 
@@ -6,11 +6,19 @@ int main()
 {
     Chunk<int, 10> chunk;
 
-    for(uint32_t i = 0; i < 10; ++i)
-        chunk.insert(i);
+    try
+    {
+        for(uint32_t i = 0; i < 10; ++i)
+            chunk.insert(i);
 
-    for(uint32_t i = 0; i < 10; ++i)
-        std::cout << chunk.at(i) << '\n';
+        for(uint32_t i = 0; i < 10; ++i)
+            std::cout << chunk.at(i) << '\n';
+    }
+    catch(Exception& exception)
+    {
+        std::cout << exception.displayText() << '\n';
+    }
+    
 
     return 0;
 }
