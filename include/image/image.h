@@ -28,7 +28,7 @@ private:
 
     BmpFileHeader _bmpHeader;
     BmpInfoHeader _bmpInfoHeader;
-    ImageWriter* _image;
+    ImageWriter* _pImageWriter;
 
 };
 

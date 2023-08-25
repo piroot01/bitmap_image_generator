@@ -28,25 +28,25 @@ Image::Image(const std::string& fileName, const uint32_t width, const uint32_t h
 
 Image::~Image()
 {
-    _image->close();
-    delete _image;
+    _pImageWriter->close();
+    delete _pImageWriter;
 }
 
 
 void Image::generateHeader()
 {
-    _image->writeHeader(_bmpHeader, _bmpInfoHeader);
+    _pImageWriter->writeHeader(_bmpHeader, _bmpInfoHeader);
 }
 
 
 void Image::appendPixel(const Color& color)
 {
-    _image->writePixel(color);
+    _pImageWriter->writePixel(color);
 }
 
 
 void Image::initializeImage()
 {
-    _image = new ImageWriter(_fileName);
-    _image->open();
+    _pImageWriter = new ImageWriter(_fileName);
+    _pImageWriter->open();
 }
