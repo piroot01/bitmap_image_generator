@@ -2,6 +2,7 @@
 #ifdef CHUNK_INCLUDED
 
 
+#include "exception/exception.h"
 #include <stdexcept>
 #include <mutex>
 #include <cstdint>
@@ -55,7 +56,7 @@ void Chunk<T, SIZE>::insert(const T& value)
     } 
     else
     {
-        throw std::out_of_range("The chunk is full.");
+        throw RangeException("The chunk is full.");
     }
 }
 
@@ -64,7 +65,7 @@ template<typename T, uint32_t SIZE>
 T Chunk<T, SIZE>::at(const uint32_t index) const
 {
     if (index >= SIZE)
-        throw std::out_of_range("The index is out of range.");
+        throw RangeException("The index is out of range.");
     return _chunk[index];;
 }
 
