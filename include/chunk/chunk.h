@@ -7,6 +7,7 @@
 #include <mutex>
 #include <cstdint>
 #include <memory>
+#include <vector>
 
 
 template<typename T, uint32_t SIZE>
@@ -15,7 +16,7 @@ class Chunk
 public:
     Chunk();
     ~Chunk() = default;
-    void insert(const T& value);
+    void push(const T& value);
     std::shared_ptr<T> get(const uint32_t index) const;
     void get(const uint32_t index, T& value) const;
     void set(const uint32_t index, const T& value);
@@ -24,36 +25,23 @@ public:
     Chunk(const Chunk& chunk);
 
 private:
-    std::unique_ptr<T[]> _chunk;
-    T* _last_inserted;
-    uint32_t _size;
+    std::vector<T> _chunk;
     //std::mutex _mutex;
 
 };
 
 
 template<typename T, uint32_t SIZE>
-Chunk<T, SIZE>::Chunk() :
-    _chunk(std::make_unique<T[]>(SIZE)),
-    _last_inserted(_chunk.get()),
-    _size(0)
+Chunk<T, SIZE>::Chunk()
 {
+    _chunk.reserve(SIZE);
 }
 
 
 template<typename T, uint32_t SIZE>
-void Chunk<T, SIZE>::insert(const T& value)
+inline void Chunk<T, SIZE>::push(const T& value)
 {
-//  std::lock_guard<std::mutex> lock(_mutex);
-    if(_size < SIZE)
-    {
-        *(_last_inserted++) = value;
-        _size++;
-    } 
-    else
-    {
-        throw RangeException("The chunk is full.");
-    }
+    _chunk.push_back(value);
 }
 
 
@@ -89,22 +77,17 @@ void Chunk<T, SIZE>::set(const uint32_t index, const T& value)
 
 
 template<typename T, uint32_t SIZE>
-void Chunk<T, SIZE>::clear()
+inline void Chunk<T, SIZE>::clear()
 {
 //  std::lock_guard<std::mutex> lock(_mutex);
-    _last_inserted = _chunk;
-    _size = 0;
-
+    _chunk.clear();
 }
 
 template<typename T, uint32_t SIZE>
 Chunk<T, SIZE>::Chunk(const Chunk<T, SIZE>& source)
 {
 //  std::lock_guard<std::mutex> lock(source._mutex);
-    _chunk = new T[SIZE];
-    memcpy(_chunk, source._chunk, SIZE * sizeof(T));
-    _last_inserted = _chunk + (source._last_inserted - source._chunk);
-    _size = source._size;
+    _chunk = source._chunk;
 }
 
 
