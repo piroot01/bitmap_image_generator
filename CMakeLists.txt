@@ -12,4 +12,5 @@ add_subdirectory(src)
 add_subdirectory(examples/simple_image)
 add_subdirectory(examples/black_and_white)
 add_subdirectory(examples/chunk)
+add_subdirectory(examples/chunk_speed)
 # Here will be placed other subdirectories
