@@ -15,12 +15,6 @@ BaseWriter::BaseWriter(const std::string& streamName) :
 }
 
 
-BaseWriter::BaseWriter(const std::string&& streamName) :
-    _streamName(streamName)
-{
-}
-
-
 void BaseWriter::open()
 {
     _stream.open(_streamName);

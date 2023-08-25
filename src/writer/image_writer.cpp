@@ -12,12 +12,6 @@ ImageWriter::ImageWriter(const std::string& streamName) :
 }
 
 
-ImageWriter::ImageWriter(const std::string&& streamName) :
-    BaseWriter(streamName)
-{
-}
-
-
 void ImageWriter::open()
 {
     _stream.open(_streamName, std::ios::binary);
