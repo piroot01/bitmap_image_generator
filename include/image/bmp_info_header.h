@@ -12,7 +12,7 @@ class BmpInfoHeader
 public:
     explicit BmpInfoHeader(uint32_t width, uint32_t height);
     std::array<unsigned char, BMP_INFO_HEADER_SIZE> get() const;
-    BmpInfoHeader& operator=(const BmpInfoHeader& bmpInfoHeader);
+    BmpInfoHeader& operator=(const BmpInfoHeader& source);
 
 private:
     uint32_t _width;

@@ -12,7 +12,7 @@ class BmpFileHeader
 public:
     explicit BmpFileHeader(uint32_t width, uint32_t height);
     std::array<unsigned char, BMP_FILE_HEADER_SIZE> get() const;
-    BmpFileHeader& operator=(const BmpFileHeader& bmpHeader);
+    BmpFileHeader& operator=(const BmpFileHeader& source);
 
 private:
     const char _bitmapSignatureBytes[2] = {'B', 'M'};
