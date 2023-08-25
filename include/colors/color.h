@@ -1,5 +1,5 @@
+#ifndef COLOR_INCLUDED
 #define COLOR_INCLUDED
-#ifdef COLOR_INCLUDED
 
 
 #include <cstdint>

@@ -1,5 +1,5 @@
+#ifndef BMP_INFO_HEADER_INCLUDED
 #define BMP_INFO_HEADER_INCLUDED
-#ifdef BMP_INFO_HEADER_INCLUDED
 
 
 #include "image/bmp_header_size.h"

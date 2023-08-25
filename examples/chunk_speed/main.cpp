@@ -1,4 +1,4 @@
-//#include "chunk/chunk.h"
+#include "chunk/chunk.h"
 #include "chunk/chunk_stack.h"
 #include "utils/timer.h"
 #include <array>

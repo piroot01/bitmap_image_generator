@@ -1,5 +1,5 @@
+#ifndef CHUNK_INCLUDED
 #define CHUNK_INCLUDED
-#ifdef CHUNK_INCLUDED
 
 
 #include "exception/exception.h"

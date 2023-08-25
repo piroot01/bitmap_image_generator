@@ -1,5 +1,5 @@
+#ifndef EXCEPTION_INCLUDED
 #define EXCEPTION_INCLUDED
-#ifdef EXCEPTION_INCLUDED
 
 
 #include <exception>

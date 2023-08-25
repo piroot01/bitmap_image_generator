@@ -1,5 +1,5 @@
+#ifndef IMAGE_CHUNK_INCLUDED
 #define IMAGE_CHUNK_INCLUDED
-#ifdef IMAGE_CHUNK_INCLUDED
 
 
 template<typename T>

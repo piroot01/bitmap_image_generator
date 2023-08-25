@@ -1,5 +1,5 @@
+#ifndef IMAGE_INCLUDED
 #define IMAGE_INCLUDED
-#ifdef IMAGE_INCLUDED
 
 
 #include "writer/image_writer.h"

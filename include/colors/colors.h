@@ -1,5 +1,5 @@
+#ifndef COLORS_INCLUDED
 #define COLORS_INCLUDED
-#ifdef COLORS_INCLUDED
 
 
 #include "color.h"

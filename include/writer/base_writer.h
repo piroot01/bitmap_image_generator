@@ -1,5 +1,5 @@
+#ifndef BASE_WRITER_INCLUDED
 #define BASE_WRITER_INCLUDED
-#ifdef BASE_WRITER_INCLUDED
 
 
 #include <fstream>

@@ -1,5 +1,5 @@
+#ifndef TIMER_INCLUDED
 #define TIMER_INCLUDED
-#ifdef TIMER_INCLUDED
 
 
 #include <chrono>

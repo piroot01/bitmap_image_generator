@@ -1,5 +1,5 @@
+#ifndef BMP_HEADER_INCLUDED
 #define BMP_HEADER_INCLUDED
-#ifdef BMP_HEADER_INCLUDED
 
 
 #include <cstdint>
