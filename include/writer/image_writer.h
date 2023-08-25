@@ -14,7 +14,6 @@ public:
     ImageWriter();
     //~ImageWriter();
     ImageWriter(const std::string& streamName);
-    ImageWriter(const std::string&& streamName);
     void open() override;
     void writeHeader(const BmpFileHeader& bmpHeader, const BmpInfoHeader& bmpInfoHeader);
     void writePixel(const Color& color);

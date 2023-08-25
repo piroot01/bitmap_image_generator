@@ -10,7 +10,6 @@ class BaseWriter
 public:
     BaseWriter();
     BaseWriter(const std::string& streamName);
-    BaseWriter(const std::string&& streamName);
     inline void setStreamName(const std::string& stringName);
     virtual void open();
 //    virtual void writeByte(const char byte);
