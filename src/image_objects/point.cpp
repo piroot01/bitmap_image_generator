@@ -2,14 +2,14 @@
 
 
 Point::Point() :
-    _x(0),
-    _y(0)
+    x(0),
+    y(0)
 {
 }
 
 
 Point::Point(const uint32_t x, const uint32_t y) :
-    _x(x),
-    _y(y)
+    x(x),
+    y(y)
 {
 }
