@@ -6,7 +6,7 @@
 #include <set>
 
 
-using PixelSet = std::set<Pixel>;
+using PointSet = std::set<Point>;
 
 
 #endif
