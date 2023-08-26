@@ -9,6 +9,7 @@ file(GLOB SOURCES
     "exception/*.cpp"
     "utils/*.cpp"
     "image_objects/*.cpp"
+    "algorithms/*.cpp"
 )
 
 
