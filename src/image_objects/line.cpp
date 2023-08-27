@@ -1,19 +1,13 @@
 #include "image_objects/line.h"
 
 
-Line::Line(const Point& start, const Point& end, const Color& color) :
-    _start(start), _end(end), _color(color)
+Line::Line(const std::shared_ptr<Algorithm> algorithm, const Point& start, const Point& end, const Color& color) :
+    DrawableObject(algorithm), _parameters(start, end), _color(color)
 {
 }
 
 
-Line::Line(const Point& start, const Point& end, const Color& color, const std::shared_ptr<LineAlgorithm> pLineAlgorithm) :
-    _pLineAlgorithm(pLineAlgorithm), _start(start), _end(end), _color(color)
+Line::Line(const std::shared_ptr<Algorithm> algorithm, const LineParameters& parameters, const Color& color) :
+    DrawableObject(algorithm), _parameters(parameters), _color(color)
 {
-}
-
-void Line::run() const
-{
-    _pLineAlgorithm->assignParameters(_start, _end);
-    _pLineAlgorithm->run();
 }
