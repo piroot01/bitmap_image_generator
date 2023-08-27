@@ -8,14 +8,13 @@
 
 class Algorithm
 {
-protected:
-    explicit Algorithm(std::shared_ptr<PointSet> pPointSet);
-    virtual ~Algorithm();
+public:
+    explicit Algorithm(const std::shared_ptr<PointSet> pPointSet);
     virtual void run() = 0;
 
+protected:
     std::shared_ptr<PointSet> _pPointSet;
 };
-
 
 
 #endif
