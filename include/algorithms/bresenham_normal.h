@@ -8,8 +8,9 @@
 class BresenhamNormal : public LineAlgorithm
 {
 public:
-    void assignParameters(const Point& start, const Point& end) override;
-    void run() override;
+    explicit BresenhamNormal(const std::shared_ptr<PointSet> pPointSet);
+
+    void run(const Point& start, const Point& end);
 
 };
 
