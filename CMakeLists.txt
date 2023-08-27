@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -O1")
-
+set(CMAKE_BUILD_TYPE Debug)
 
 add_subdirectory(src)
 add_subdirectory(examples/simple_image)
