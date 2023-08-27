@@ -112,3 +112,4 @@ void Exception::rethrow() const
 
 IMPLEMENT_EXCEPTION(LogicException, Exception, "Logic exception")
 IMPLEMENT_EXCEPTION(RangeException, LogicException, "Out of range")
+IMPLEMENT_EXCEPTION(BadCastException, Exception, "Bad cast")

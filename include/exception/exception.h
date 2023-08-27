@@ -130,6 +130,7 @@ inline uint32_t Exception::code() const
 
 DECLARE_EXCEPTION(LogicException, Exception)
 DECLARE_EXCEPTION(RangeException, LogicException)
+DECLARE_EXCEPTION(BadCastException, Exception)
 
 
 #endif
