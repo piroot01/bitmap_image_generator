@@ -9,17 +9,17 @@ class DrawableObjectsQueue
 {
 public:
     DrawableObjectsQueue();
-    void push(const DrawableObject& drawableObject);
+    void push(const std::shared_ptr<DrawableObject> drawableObject);
     void pop();
     void clear();
 
 private:
-    std::deque<DrawableObject> _queue;
+    std::deque<std::weak_ptr<DrawableObject>> _queue;
 
 };
 
 
-inline void DrawableObjectsQueue::push(const DrawableObject& drawableObject)
+inline void DrawableObjectsQueue::push(const std::shared_ptr<DrawableObject> drawableObject)
 {
     _queue.push_back(drawableObject);
 }

@@ -2,14 +2,17 @@
 #define DRAWABLE_OBJECTS_INCLUDED
 
 
-#include "algorithms/line_algorithm.h"
+#include "algorithms/algorithm.h"
 
 
 class DrawableObject
 {
 public:
-    DrawableObject();
-    virtual void run() const = 0;
+    explicit DrawableObject(const std::shared_ptr<Algorithm> algorithm);
+    virtual void generate() const = 0;
+
+protected:
+    const std::shared_ptr<Algorithm> _pAlgorithm;
 
 };
 
