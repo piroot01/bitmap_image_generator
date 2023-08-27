@@ -1,42 +1,80 @@
 #include "algorithms/bresenham_normal.h"
+#include "algorithms/bresenham_normal_parameters.h"
+#include "exception/exception.h"
 #include <cmath>
 #include <cstdint>
+#include <iostream>
 
 
-void BresenhamNormal::run(const Point& start, const Point& end)
+BresenhamNormal::BresenhamNormal(const std::shared_ptr<PointSet> pPointSet) :
+    LineAlgorithm(pPointSet)
 {
-    int32_t lx = end.x - start.x;
-    int32_t ly = end.y - start.y;
+}
 
-    int32_t dx = abs(lx);
-    int32_t dy = -abs(ly);
 
-    int32_t sx = (start.x < end.x) ? 1 : -1;
-    int32_t sy = (start.y < end.y) ? 1 : -1;
+void BresenhamNormal::run(const Parameters* pParameters)
+{
+    const BresenhamNormalParameters* pBresenhamParameters = static_cast<const BresenhamNormalParameters*>(pParameters);
 
-    int32_t error = dx + dy;
+    if (pBresenhamParameters == nullptr)
+        throw BadCastException();
 
-    Point p(start.x, start.y);
+    Point p(pBresenhamParameters->_start);
 
-    while(true)
+    int32_t w = pBresenhamParameters->_end.x - pBresenhamParameters->_start.x;
+    int32_t h = pBresenhamParameters->_end.y - pBresenhamParameters->_start.y;
+
+    int32_t dx1 = 0;
+    int32_t dx2 = 0;
+    int32_t dy1 = 0;
+    int32_t dy2 = 0;
+
+    if (w < 0)
+    {
+        dx1 = -1;
+        dx2 = -1;
+    }
+    else if (w > 0)
+    {
+        dx1 = 1;
+        dx2 = 1; 
+    }
+
+    if (h < 0)
+        dy1 = -1;
+    else if (h > 0)
+        dy1 = 1;
+
+    int32_t longest = abs(w);
+    int32_t shortest = abs(h);
+
+    if (longest <= shortest)
+    {
+        longest = abs(h);
+        shortest = abs(w);
+        if (h < 0)
+            dy2 = -1;
+        else if (h > 0)
+            dy2 = 1;
+        dx2 = 0;
+    }
+
+    int numerator = longest >> 1;
+
+    for (int32_t i = 0; i <= longest; ++i)
     {
         _pPointSet->emplace(p);
-        if(start.x == end.x and start.y == end.y)
-            break;
-        int32_t error2 = 2 * error;
-        if(error2 >= dy)
+        numerator += shortest;
+        if (numerator >= longest)
         {
-            if(p.x == end.x)
-                break;
-            error += dy;
-            p.x += sx;
+            numerator -= longest;
+            p.x += dx1;
+            p.y += dy1;
         }
-        if(error2 <= dx)
+        else
         {
-            if(p.y == end.y)
-                break;
-            error += dx;
-            p.y += sy;
+            p.x += dx2;
+            p.y += dy2;
         }
     }
 }
