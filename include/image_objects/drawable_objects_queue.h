@@ -47,7 +47,7 @@ inline std::deque<std::shared_ptr<DrawableObject>>::const_iterator DrawableObjec
     return _queue.end();
 }
 
-
+/*
 inline std::deque<std::shared_ptr<DrawableObject>>::iterator DrawableObjectsQueue::begin()
 {
     return _queue.begin();
@@ -58,6 +58,6 @@ inline std::deque<std::shared_ptr<DrawableObject>>::iterator DrawableObjectsQueu
 {
     return _queue.end();
 }
-
+*/
 
 #endif
