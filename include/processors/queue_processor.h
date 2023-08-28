@@ -5,11 +5,11 @@
 #include "image_objects/drawable_objects_queue.h"
 
 
-class ImageProcessor
+class QueueProcessor
 {
 public:
-    ImageProcessor();
-    ImageProcessor(const DrawableObjectsQueue& queue);
+    QueueProcessor();
+    QueueProcessor(const DrawableObjectsQueue& queue);
     void process() const;
 
 private:
