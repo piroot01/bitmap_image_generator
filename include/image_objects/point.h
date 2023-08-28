@@ -13,6 +13,8 @@ public:
     Point(const Point& point) = default;
     Point& operator=(const Point& source) = default;
 
+    void set(const uint32_t x, const uint32_t y);
+
 public:
     uint32_t x;
     uint32_t y;
@@ -23,6 +25,13 @@ public:
 inline bool operator<(const Point& lhs, const Point& rhs)
 {
     return (lhs.x + lhs.y) < (rhs.x + rhs.y);
+}
+
+
+inline void Point::set(const uint32_t x, const uint32_t y)
+{
+    this->x = x;
+    this->y = y;
 }
 
 
