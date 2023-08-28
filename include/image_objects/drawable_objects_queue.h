@@ -14,7 +14,7 @@ public:
     void clear();
 
 private:
-    std::deque<std::weak_ptr<DrawableObject>> _queue;
+    std::deque<std::shared_ptr<DrawableObject>> _queue;
 
 };
 
