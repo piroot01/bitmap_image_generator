@@ -6,8 +6,8 @@
 #include <iostream>
 
 
-BresenhamNormal::BresenhamNormal(const std::shared_ptr<PointSet> pPointSet) :
-    LineAlgorithm(pPointSet)
+BresenhamNormal::BresenhamNormal(const std::shared_ptr<PointCollection> pPointCollection) :
+    LineAlgorithm(pPointCollection)
 {
 }
 
@@ -63,7 +63,7 @@ void BresenhamNormal::run(const Parameters* pParameters)
 
     for (int32_t i = 0; i <= longest; ++i)
     {
-        _pPointSet->emplace(p);
+        _pPointCollection->push(p);
         numerator += shortest;
         if (numerator >= longest)
         {
