@@ -3,6 +3,7 @@
 
 
 #include "writer/base_writer.h"
+#include "chunk/image_chunk.h"
 #include "image/bmp_file_header.h"
 #include "image/bmp_info_header.h"
 #include "colors/colors.h"
@@ -17,6 +18,7 @@ public:
     void open() override;
     void writeHeader(const BmpFileHeader& bmpHeader, const BmpInfoHeader& bmpInfoHeader);
     void writePixel(const Color& color);
+    void writeImageChunk(const ImageChunk* chunk, const Color& baseColor, const Color& complementaryColor);
 
 };
 

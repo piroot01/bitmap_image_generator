@@ -29,3 +29,15 @@ void ImageWriter::writePixel(const Color& color)
 {
     _stream.write(reinterpret_cast<const char*>(&color), sizeof(uint8_t) * 3);
 }
+
+
+void ImageWriter::writeImageChunk(const ImageChunk* chunk, const Color& baseColor, const Color& complementaryColor)
+{
+    for (uint32_t i = 0; i < chunk->size(); ++i)
+    {
+        if (chunk->get(i))
+            _stream.write(reinterpret_cast<const char*>(&complementaryColor), sizeof(uint8_t) * 3);
+        else
+            _stream.write(reinterpret_cast<const char*>(&baseColor), sizeof(uint8_t) * 3);
+    }
+}
