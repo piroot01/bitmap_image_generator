@@ -1,5 +1,5 @@
-#ifndef PIXEL_SET_INCLUDED
-#define PIXEL_SET_INCLUDED
+#ifndef POINT_SET_INCLUDED
+#define POINT_SET_INCLUDED
 
 
 #include "image_objects/pixel.h"
