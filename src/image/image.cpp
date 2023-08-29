@@ -19,6 +19,7 @@ Image::Image(const std::string& fileName, const uint32_t width, const uint32_t h
     _fileName(fileName),
     _width(width),
     _height(height),
+    _baseColor(Colors::white),
     _bmpHeader(_width, _height),
     _bmpInfoHeader(_width, _height)
 {

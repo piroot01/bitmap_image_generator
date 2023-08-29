@@ -17,6 +17,9 @@ public:
     ~Image();
     void generateHeader();
     void appendPixel(const Color& color);
+    uint32_t getWidth() const;
+    uint32_t getHeight() const;
+    void setBaseColor(const Color& color); 
 
 private:
     void initializeImage();
@@ -26,11 +29,34 @@ private:
     uint32_t _width;
     uint32_t _height;
 
+    Color _baseColor;
+
     BmpFileHeader _bmpHeader;
     BmpInfoHeader _bmpInfoHeader;
     ImageWriter* _pImageWriter;
 
+public:
+    friend class ImageProcessor;
+
 };
+
+
+inline uint32_t Image::getWidth() const
+{
+    return _width;
+}
+
+
+inline uint32_t Image::getHeight() const
+{
+    return _width;
+}
+
+
+inline void Image::setBaseColor(const Color& baseColor)
+{
+    _baseColor = baseColor;
+}
 
 
 #endif
