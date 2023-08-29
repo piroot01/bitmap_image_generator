@@ -2,10 +2,11 @@
 #define IMAGE_CHUNK_INCLUDED
 
 
-template<typename T>
-class ImageChunk
-{
-}
+#include "chunk/chunk.h"
+#include "image_objects/point.h"
+
+
+using ImageChunk = Chunk<bool>;
 
 
 #endif
