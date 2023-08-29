@@ -16,7 +16,7 @@ public:
 
 private:
     Point _point;
-    Color _color;
+    const Color& _color;
 
 };
 
