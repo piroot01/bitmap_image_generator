@@ -14,6 +14,9 @@ public:
 protected:
     const std::shared_ptr<Algorithm> _pAlgorithm;
 
+public:
+    friend class QueueProcessor;
+
 };
 
 
