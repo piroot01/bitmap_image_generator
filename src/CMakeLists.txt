@@ -10,6 +10,7 @@ file(GLOB SOURCES
     "utils/*.cpp"
     "image_objects/*.cpp"
     "algorithms/*.cpp"
+    "processors/*.cpp"
 )
 
 
