@@ -14,4 +14,6 @@ add_subdirectory(examples/black_and_white)
 add_subdirectory(examples/chunk)
 add_subdirectory(examples/chunk_speed)
 add_subdirectory(examples/line)
+add_subdirectory(examples/queue_processor)
+add_subdirectory(examples/circular_counting_buffer)
 # Here will be placed other subdirectories
