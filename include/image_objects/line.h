@@ -16,7 +16,6 @@ public:
 
 private:
     const LineParameters _parameters;
-    const Color _color;
 
 };
 
