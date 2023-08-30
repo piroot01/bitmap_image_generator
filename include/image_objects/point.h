@@ -24,7 +24,7 @@ public:
 
 inline bool operator<(const Point& lhs, const Point& rhs)
 {
-    return (lhs.x + lhs.y) < (rhs.x + rhs.y);
+    return (lhs.y < rhs.y) || (lhs.y == rhs.y && lhs.x < rhs.x);
 }
 
 
