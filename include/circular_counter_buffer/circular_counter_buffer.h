@@ -14,9 +14,11 @@ public:
     void resetCounter();
     uint32_t getCounter() const;
     void push(const T& value);
-    void pop(T& value);
+    void back(T& value);
+
     typename boost::circular_buffer<T>::const_iterator begin() const;
     typename boost::circular_buffer<T>::const_iterator end() const;
+    typename boost::circular_buffer<T>::const_reverse_iterator rbegin() const;
 
 private:
     boost::circular_buffer<T> _buffer;
@@ -49,18 +51,17 @@ inline void CircularCounterBuffer<T>::resetCounter()
 template<typename T>
 void CircularCounterBuffer<T>::push(const T& value)
 {
-    if (_counter >= _buffer.size())
+    if (_counter >= _buffer.capacity())
         _buffer.set_capacity(2 * _counter);
-    _counter++;
     _buffer.push_back(value);
+    _counter++;
 }
 
 
 template<typename T>
-void CircularCounterBuffer<T>::pop(T& value)
+void CircularCounterBuffer<T>::back(T& value)
 {
     value = _buffer.back();
-    _buffer.pop_back();
 }
 
 
@@ -82,6 +83,13 @@ template<typename T>
 inline typename boost::circular_buffer<T>::const_iterator CircularCounterBuffer<T>::end() const
 {
     return _buffer.end();
+}
+
+
+template<typename T>
+inline typename boost::circular_buffer<T>::const_reverse_iterator CircularCounterBuffer<T>::rbegin() const
+{
+    return _buffer.rbegin();
 }
 
 
