@@ -18,17 +18,17 @@ int main()
 
     // Bunch of lines
     Point start(0, 0);
-    Point end(10, 10);
+    Point end(10, 0);
     std::shared_ptr<Line> pLine1 = std::make_shared<Line>(pAlgorithm, start, end, Colors::black);
     queue.push(pLine1);
 
-    start.set(0, 0);
-    end.set(40, 23);
+    start.set(0, 1);
+    end.set(20, 1);
     std::shared_ptr<Line> pLine2 = std::make_shared<Line>(pAlgorithm, start, end, Colors::black);
     queue.push(pLine2);
 
-    start.set(30, 0);
-    end.set(5, 0);
+    start.set(0, 2);
+    end.set(4, 2);
     std::shared_ptr<Line> pLine3 = std::make_shared<Line>(pAlgorithm, start, end, Colors::black);
     queue.push(pLine3);
 
