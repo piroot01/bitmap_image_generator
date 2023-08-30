@@ -16,4 +16,10 @@ public:
 };
 
 
+inline bool operator==(const Color& lhs, const Color& rhs)
+{
+    return (lhs.blue == rhs.blue) and (lhs.green == rhs.green) and (lhs.red == rhs.red);
+}
+
+
 #endif
