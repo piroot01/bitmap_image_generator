@@ -37,12 +37,5 @@ int main()
     processor.process(pixelSet);
 
 
-    int i = 0;
-    for (const auto& p : pixelSet)
-    {
-        assert(p.getColor() == Colors::black);
-        std::cout << "[" << i++ << "]: " << p.getPoint().y << ", " << p.getPoint().x << '\n';
-    }
-
     return 0;
 }
