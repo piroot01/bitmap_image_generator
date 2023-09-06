@@ -30,7 +30,6 @@ Image::Image(const std::string& fileName, const uint32_t width, const uint32_t h
 Image::~Image()
 {
     _pImageWriter->close();
-    delete _pImageWriter;
 }
 
 
@@ -48,6 +47,6 @@ void Image::appendPixel(const Color& color)
 
 void Image::initializeImage()
 {
-    _pImageWriter = new ImageWriter(_fileName);
+    _pImageWriter = std::make_unique<ImageWriter>(_fileName);
     _pImageWriter->open();
 }
