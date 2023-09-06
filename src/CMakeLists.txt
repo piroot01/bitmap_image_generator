@@ -11,6 +11,9 @@ file(GLOB SOURCES
     "image_objects/*.cpp"
     "algorithms/*.cpp"
     "processors/*.cpp"
+    "managers/*.cpp"
+    "parameters/*.cpp"
+    "preparators/*.cpp"
 )
 
 
