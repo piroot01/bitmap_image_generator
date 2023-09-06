@@ -11,6 +11,7 @@ class DrawableObject
 public:
     explicit DrawableObject(const std::shared_ptr<Algorithm> algorithm, const Color& color);
     virtual void generate() const = 0;
+    virtual void check(const uint32_t imageWidth, const uint32_t imageHeight) const = 0;
 
 protected:
     const std::shared_ptr<Algorithm> _pAlgorithm;
