@@ -2,7 +2,7 @@
 #define BRESENHAM_INCLUDED
 
 
-#include "algorithms/line_parameters.h"
+#include "parameters/line_parameters.h"
 #include "algorithms/algorithm.h"
 #include "algorithms/point_collection.h"
 #include "colors/color.h"
