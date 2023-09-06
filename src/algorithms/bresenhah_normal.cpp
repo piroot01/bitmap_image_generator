@@ -1,5 +1,5 @@
 #include "algorithms/bresenham_normal.h"
-#include "algorithms/bresenham_normal_parameters.h"
+#include "parameters/bresenham_normal_parameters.h"
 #include "exception/exception.h"
 #include <cmath>
 #include <cstdint>
