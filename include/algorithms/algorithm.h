@@ -16,6 +16,9 @@ public:
 protected:
     std::shared_ptr<PointCollection> _pPointCollection;
 
+public:
+    friend class QueueProcessor;
+
 };
 
 
