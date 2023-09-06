@@ -2,7 +2,7 @@
 #define ALGORITHM_INCLUDED
 
 
-#include "algorithms/parameters.h"
+#include "parameters/parameters.h"
 #include "algorithms/point_collection.h"
 #include <memory>
 
