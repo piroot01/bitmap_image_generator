@@ -4,15 +4,12 @@
 
 int main()
 {
-    Chunk<int, 10> chunk;
+    Chunk<int> chunk;
 
     try
     {
         for(uint32_t i = 0; i < 10; ++i)
-            chunk.insert(i);
-
-        for(uint32_t i = 0; i < 10; ++i)
-            std::cout << chunk.at(i) << '\n';
+            chunk.push(i);
     }
     catch(Exception& exception)
     {

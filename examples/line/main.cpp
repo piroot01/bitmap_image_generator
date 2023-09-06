@@ -17,7 +17,7 @@ int main()
         Line line(pAlgorithm, start, end, Colors::black);
         line.generate();
 
-        std::cout << "Counter: " << pPointCollection->getCounter() << ", number of elements: " << pPointCollection->_buffer.size() << '\n';
+        std::cout << "Counter: " << pPointCollection->getCounter() << '\n';
         
         int i = 0;
         for (const Point& point : *pPointCollection)
