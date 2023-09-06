@@ -33,7 +33,7 @@ int main()
     queue.push(pLine3);
 
     PixelSet pixelSet;
-    QueueProcessor processor(queue, pPointCollection);
+    QueueProcessor processor(queue);
     processor.process(pixelSet);
 
 

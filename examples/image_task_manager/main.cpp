@@ -35,7 +35,7 @@ int main()
     queue.push(pLine2);
 
     PixelSet pixelSet;
-    QueueProcessor processor(queue, pPointCollection);
+    QueueProcessor processor(queue);
     processor.process(pixelSet);
 
     Image myImage("out.bmp", 100, 100);
