@@ -5,11 +5,14 @@
 #include <boost/circular_buffer.hpp>
 
 
+#define DEFAULT_SIZE 16
+
+
 template<typename T>
 class CircularCounterBuffer
 {
 public:
-    explicit CircularCounterBuffer(const size_t size);
+    explicit CircularCounterBuffer(const size_t size = DEFAULT_SIZE);
     void setCapacity(const size_t capacity);
     void resetCounter();
     uint32_t getCounter() const;
