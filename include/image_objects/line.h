@@ -1,7 +1,7 @@
 #ifndef LINE_INCLUDED
 #define LINE_INCLUDED
 
-#include "algorithms/line_parameters.h"
+#include "parameters/line_parameters.h"
 #include "image_objects/drawable_object.h"
 #include "image_objects/point.h"
 #include "colors/color.h"
