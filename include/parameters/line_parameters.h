@@ -17,6 +17,7 @@ protected:
 
 public:
     friend class LineAlgorithm;
+    friend class Line;
 
 };
 
