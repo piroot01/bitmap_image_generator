@@ -16,4 +16,5 @@ add_subdirectory(examples/chunk_speed)
 add_subdirectory(examples/line)
 add_subdirectory(examples/queue_processor)
 add_subdirectory(examples/circular_counting_buffer)
+add_subdirectory(examples/image_task_manager)
 # Here will be placed other subdirectories
