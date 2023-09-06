@@ -10,13 +10,12 @@
 class QueueProcessor
 {
 public:
-    explicit QueueProcessor(const DrawableObjectsQueue& queue, const std::shared_ptr<PointCollection> pPointCollection);
+    explicit QueueProcessor(const DrawableObjectsQueue& queue);
     void process(PixelSet& pixelSet) const;
 
 private:
     const PointSetProcessor _pointSetProcessor;
     const DrawableObjectsQueue* _queue;
-    const std::shared_ptr<PointCollection> _pPointCollection;
 
 };
 
