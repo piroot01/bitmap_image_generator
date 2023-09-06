@@ -10,11 +10,8 @@
 class PointSetProcessor
 {
 public:
-    explicit PointSetProcessor(const std::shared_ptr<PointCollection> pPointCollection);
-    void process(PixelSet& pixelSet, const Color& color) const;
-
-private:
-    std::shared_ptr<PointCollection> _pPointCollection;
+    PointSetProcessor();
+    void process(PixelSet& pixelSet, PointCollection* pPointCollection, const Color& color) const;
 
 };
 
