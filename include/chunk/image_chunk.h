@@ -3,10 +3,10 @@
 
 
 #include "chunk/chunk.h"
-#include "image_objects/point.h"
+#include "colors/color.h"
 
 
-using ImageChunk = Chunk<bool>;
+using ImageChunk = std::vector<const Color*>;
 
 
 #endif
