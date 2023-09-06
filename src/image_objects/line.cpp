@@ -7,6 +7,12 @@ Line::Line(const std::shared_ptr<Algorithm> algorithm, const Point& start, const
 }
 
 
+Line::Line(const std::shared_ptr<Algorithm> algorithm, const Point&& start, const Point&& end, const Color& color) :
+    DrawableObject(algorithm, color), _parameters(std::move(start), std::move(end))
+{
+}
+
+
 Line::Line(const std::shared_ptr<Algorithm> algorithm, const LineParameters& parameters, const Color& color) :
     DrawableObject(algorithm, color), _parameters(parameters)
 {
