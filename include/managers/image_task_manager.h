@@ -8,11 +8,34 @@
 #include <thread>
 
 
+/**
+* @class ImageTaskManager
+* @brief Class that is used to launch the threads and collect their data afterwards
+*/
 class ImageTaskManager
 {
 public:
+
+    /**
+    * @brief Constructor
+    * @param chunkBaseSize this partially determines the size of the single chunk that will be processed by a thread
+    * @param image
+    * @param pixelSet the set filled with pixels ready to be drawn
+    */
     explicit ImageTaskManager(const size_t chunkBaseSize, const Image& image, const PixelSet& pixelSet);
+
+    /**
+    * @brief setConcurrentThreadNum
+    * @detail Sets the number of theads that will be launched concurrentely
+    * @param count
+    * @return void
+    */
     void setConcurrentThreadNum(const uint32_t count);
+
+    /**
+    * @brief run
+    * @return void
+    */
     void run();
 
 private:

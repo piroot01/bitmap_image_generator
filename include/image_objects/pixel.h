@@ -5,6 +5,7 @@
 #include "image_objects/point.h"
 #include "colors/colors.h"
 
+
 /**
 * @class Pixel
 * @brief It stores Point and Color

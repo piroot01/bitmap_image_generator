@@ -9,9 +9,19 @@
 #include <vector>
 
 
+/**
+* @class ManagerTask
+* @brief Implements one threads task
+*/
 class ManagerTask : public Task
 {
 public:
+
+    /**
+    * @brief run
+    * @parame parameters accepted as copy
+    * chunkNum essentially id of the thread
+    */
     static std::shared_ptr<ImageChunk> run(ManagerTaskParameters parameters, const uint32_t chunkNum);
 
 };
