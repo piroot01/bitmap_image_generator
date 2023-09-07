@@ -5,12 +5,25 @@
 #include <chrono>
 
 
+/**
+* @class Timer
+* @brief it uses RAII style timing
+*/
 class Timer
 {
 public:
+
+    /**
+    * @brief Constructor
+    * @detail It starts the steady_clock
+    */
     Timer();
+
+    /**
+    * @brief Destructor
+    * @detail It stops the steady_clock and prints the diff
+    */
     ~Timer();
-    Timer& operator=(const Timer& timer);
 
 private:
     std::chrono::time_point<std::chrono::steady_clock> _start;
