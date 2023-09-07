@@ -6,9 +6,18 @@
 #include "image_objects/point.h"
 
 
+/**
+* @class LineParameters
+* @brief Holds the parameters that are essential for line algorithms
+*/
 class LineParameters : public Parameters
 {
 public:
+    /**
+    * @brief Constructor
+    * @param start
+    * @param end
+    */
     explicit LineParameters(const Point& start, const Point& end);
 
 protected:

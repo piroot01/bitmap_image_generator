@@ -9,6 +9,10 @@
 #include <memory>
 
 
+/**
+* @class IdSizeIterator
+* @brief class that holds the id of the iteraotor, iterator, and the size
+*/
 class IdSizeIterator
 {
 public:
@@ -19,13 +23,42 @@ public:
 };
 
 
+/**
+* @class ImageTaskManagerPreparatorParameters
+* @brief parameters for the ImageTaskManagerPreparator class
+*/
 class ImageTaskManagerPreparatorParameters : public Parameters
 {
 public:
+
+    /**
+    * @brief Default constructor
+    */
     ImageTaskManagerPreparatorParameters();
+
+    /**
+    * @brief getChunkNum
+    * @return uint32_t number of chunks that will be processed in the new threads
+    */
     uint32_t getChunkNum() const;
+
+    /**
+    * @brief getChunkSize
+    * @return uint32_t size of each chunk
+    */
     uint32_t getChunkSize() const;
+
+    /**
+    * @brief getFinalChunkSize
+    * @return uint32_t size of the final chunk that will be processed on the main thread
+    */
     uint32_t getFinalChunkSize() const;
+
+    
+    /**
+    * @brief getPixelSetIterators
+    * @return std::vector<IdSizeIterator>& return the constant reference to the iterators
+    */
     const std::vector<IdSizeIterator>& getPixelSetIterators() const;
 
 private:
