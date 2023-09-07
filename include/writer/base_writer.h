@@ -5,15 +5,42 @@
 #include <fstream>
 
 
+/**
+* @class BaseWriter
+* @brief Base class that provides an interface for wrinting into a file
+*/
 class BaseWriter
 {
 public:
+
+    /**
+    * @rief Default constructor
+    */
     BaseWriter();
+
+    /**
+    * @brief Constructor
+    * @param streamName
+    */
     BaseWriter(const std::string& streamName);
+
+    /**
+    * @brief setStreamName
+    * param streamName
+    * return void
+    */
     inline void setStreamName(const std::string& stringName);
+
+    /**
+    * @brief open
+    * @return void
+    */
     virtual void open();
-//    virtual void writeByte(const char byte);
-//    virtual void writeChunk(const std::string& data);
+
+    /**
+    * @brief close
+    * @return void
+    */
     inline void close();
 
 protected:

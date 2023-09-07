@@ -25,6 +25,7 @@ public:
     * @param pixelSet
     * @param pPointCollection
     * @param color
+    * @return void
     */
     void process(PixelSet& pixelSet, PointCollection* pPointCollection, const Color& color) const;
 

@@ -18,9 +18,9 @@ void ImageWriter::open()
 }
 
 
-void ImageWriter::writeHeader(const BmpFileHeader& bmpHeader, const BmpInfoHeader& bmpInfoHeader)
+void ImageWriter::writeHeader(const BmpFileHeader& bmpFileHeader, const BmpInfoHeader& bmpInfoHeader)
 {
-    _stream.write(reinterpret_cast<const char*>(bmpHeader.get().data()), BMP_FILE_HEADER_SIZE);
+    _stream.write(reinterpret_cast<const char*>(bmpFileHeader.get().data()), BMP_FILE_HEADER_SIZE);
     _stream.write(reinterpret_cast<const char*>(bmpInfoHeader.get().data()), BMP_INFO_HEADER_SIZE);
 }
 

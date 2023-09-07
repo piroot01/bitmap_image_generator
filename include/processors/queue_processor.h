@@ -24,6 +24,7 @@ public:
     /**
     * @brief process
     * @params pixelSet
+    * @return void
     */
     void process(PixelSet& pixelSet) const;
 

@@ -52,12 +52,14 @@ public:
     /**
     * @cbrief pushBack
     * @param value is rvalue
+    * @return void
     */
     void pushBack(T&& value);
 
     /**
     * @cbrief pushFront
     * @param value is rvalue
+    * @return void
     */
     void pushFront(T&& value);
 
