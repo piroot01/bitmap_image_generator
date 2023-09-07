@@ -8,19 +8,69 @@
 #define DEFAULT_SIZE 16
 
 
+/**
+* @class CircularCounterBuffer
+* @brief Class that implemets circular buffer with active counting
+*/
 template<typename T>
 class CircularCounterBuffer
 {
 public:
+
+    /**
+    * @brief Default constructor
+    * @param size
+    */
     explicit CircularCounterBuffer(const size_t size = DEFAULT_SIZE);
+
+    /**
+    * @brief setCapacity
+    * @param capacity
+    * @return void
+    */
     void setCapacity(const size_t capacity);
+
+    /**
+    * @brief resetCounter sets the internal counter to 0
+    * @return void
+    */
     void resetCounter();
+    
+    /**
+    * @brief getCounter uset to obtain counter value
+    * @return uint32_t
+    */
     uint32_t getCounter() const;
+
+    /**
+    * @brief push pushes new value into the buffer
+    * @return uint32_t
+    */
     void push(const T& value);
+
+    /**
+    * @brief back saves the most recent value into the value
+    * @param value
+    * @return uint32_t
+    */
     void back(T& value);
 
+    /**
+    * @brief begin
+    * @return const_iterator
+    */
     typename boost::circular_buffer<T>::const_iterator begin() const;
+
+    /**
+    * @brief end
+    * @return const_iterator
+    */
     typename boost::circular_buffer<T>::const_iterator end() const;
+
+    /**
+    * @brief rbegin
+    * @return const_reverse_iterator
+    */
     typename boost::circular_buffer<T>::const_reverse_iterator rbegin() const;
 
 private:
