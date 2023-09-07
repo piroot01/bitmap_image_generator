@@ -5,14 +5,30 @@
 #include <cstdint>
 
 
+/**
+* @class Point
+* @brief Publicly stores two points
+*/
 class Point
 {
 public:
+    /**
+    * @brief Default Constructor
+    */
     Point();
-    Point(const uint32_t x, const uint32_t y);
-    Point(const Point& point) = default;
-    Point& operator=(const Point& source) = default;
 
+    /**
+    * @brief Contructor
+    * @param x
+    * @param y
+    */
+    Point(const uint32_t x, const uint32_t y);
+
+    /**
+    * @brief set
+    * @param x
+    * @param y
+    */
     void set(const uint32_t x, const uint32_t y);
 
 public:

@@ -5,18 +5,50 @@
 #include "image_objects/drawable_object.h"
 #include <deque>
 
+
+/**
+* @class DrawableObjectsQueue
+* @brief It is used to store all DrawableObject instances
+*/
 class DrawableObjectsQueue
 {
 public:
+
+    /**
+    * @brief Default constructor
+    */
     DrawableObjectsQueue();
+
+    /**
+    * @brief push
+    * @param drawableObject stores the pointer in the queue
+    * @return void
+    */
     void push(const std::shared_ptr<DrawableObject> drawableObject);
+
+    /**
+    * @brief pop
+    * @return void
+    */
     void pop();
+
+    /**
+    * @brief clear
+    * @return void
+    */
     void clear();
 
+    /**
+    * @brief begin
+    * @return iterator
+    */
     std::deque<std::shared_ptr<DrawableObject>>::const_iterator begin() const;
+
+    /**
+    * @brief end
+    * @return iterator
+    */
     std::deque<std::shared_ptr<DrawableObject>>::const_iterator end() const;
-    //std::deque<std::shared_ptr<DrawableObject>>::iterator begin();
-    //std::deque<std::shared_ptr<DrawableObject>>::iterator end();
 
 private:
     std::deque<std::shared_ptr<DrawableObject>> _queue;

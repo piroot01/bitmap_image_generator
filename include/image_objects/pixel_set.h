@@ -6,6 +6,9 @@
 #include <set>
 
 
+/**
+* @brief Alias to a set of Pixels
+*/
 using PixelSet = std::set<Pixel>;
 
 

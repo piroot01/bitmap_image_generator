@@ -6,6 +6,9 @@
 #include <set>
 
 
+/**
+* @brief Alias to a set of Points
+*/
 using PointSet = std::set<Point>;
 
 

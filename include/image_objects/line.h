@@ -8,13 +8,53 @@
 #include "exception/exception.h"
 
 
+/**
+* @clas Line
+* @brief DrawableObject
+*/
 class Line : public DrawableObject
 {
 public:
+    /**
+    * @brief Constructor with lvalue points
+    * @param algorithm it generates the actual object
+    * @param start point
+    * @param end point
+    * @param color
+    */
     explicit Line(const std::shared_ptr<Algorithm> algorithm, const Point& start, const Point& end, const Color& color);
+
+    /**
+    * @brief Constructor with rvalue points
+    * @param algorithm it generates the actual object
+    * @param start point
+    * @param end point
+    * @param color
+    */
     explicit Line(const std::shared_ptr<Algorithm> algorithm, const Point&& start, const Point&& end, const Color& color);
+
+    /**
+    * @brief Constructor with LineParameters
+    * @param algorithm it generates the actual object
+    * @param parameters
+    * @param color
+    */
     explicit Line(const std::shared_ptr<Algorithm> algorithm, const LineParameters& parameters, const Color& color);
+
+    /**
+    * @brief generate
+    * @detail implements the base method
+    * @retirn void
+    */
     void generate() const override;
+
+    /**
+    * @brief check
+    * @detail implements the base method
+    * @param imageWidht
+    * @param imageHeight
+    * @retirn void
+    */
     void check(const uint32_t imageWidth, const uint32_t imageHeight) const override;
 
 private:
