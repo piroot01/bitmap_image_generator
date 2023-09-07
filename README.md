@@ -22,28 +22,81 @@ The documentation will be generated inside the 'doc' directory.
 
 ## Customization
 
-    Line Color: You can specify the color of lines, and the program supports any 255-255-255 color.
-
-    Max Image Resolution: The program supports a maximum image resolution of 4294967295 pixels.
-
-    Extensible: The program is designed to be extensible and ready for various drawable objects such as circles, ovals, curves, and more. It also supports different algorithm implementations for each object for experimental purposes.
-    Custom Exception Class: The program includes a custom exception class for handling errors and exceptions.
+ - Line Color: You can specify the color of lines, and the program supports any 255-255-255 color.
+ - Max Image Resolution: The program supports a maximum image resolution of 4294967295 pixels.
+ - Extensible: The program is designed to be extensible and ready for various drawable objects such as circles, ovals, curves, and more. It also supports different algorithm implementations for each object for experimental purposes.
+ - Custom Exception Class: The program includes a custom exception class for handling errors and exceptions.
 
 ## To-Do List
 
- Support for more drawable objects, such as circles, ovals, and curves.
-
-    Multithread the execution of drawable objects for improved performance. Note that with the current implementation, multithreading is not reasonable.
+ [ ] Support for more drawable objects, such as circles, ovals, and curves.
+ [ ] Multithread the execution of drawable objects for improved performance. Note that with the current implementation, multithreading is not reasonable.
 
 ## Getting Started
 
 To get started with Bitmap Image Generator, follow these steps:
-
-    Clone this repository to your local machine:
+ - Clone this repository to your local machine:
 
     git clone https://github.com/yourusername/bitmap-image-generator.git
 
-Build the program using CMake:
+Build the program using CMake.
+
+## Example
+
+## Example Usage
+
+Here's an example of how to use the Bitmap Image Generator in your C++ code:
+
+```cpp
+#include "api/api.h"
+#include "image_objects/line.h"
+#include "algorithms/bresenham_normal.h"
+#include "utils/timer.h"
+#include "colors/colors.h"
+#include <iostream>
+
+int main()
+{
+    // Time the whole program
+    Timer t;
+
+    // Create image
+    Api myImage("image.bmp", 100, 100);
+
+    // Storege for algorithms
+    std::shared_ptr<PointCollection> pPointCollection = std::make_shared<PointCollection>();
+
+    // Create algorithm of type bresenham normal
+    std::shared_ptr<BresenhamNormal> pAlgorithm = std::make_shared<BresenhamNormal>(pPointCollection);
+
+    // Queue for all drawable objects
+    std::unique_ptr<DrawableObjectsQueue> queue = std::make_unique<DrawableObjectsQueue>();
+
+    // Create and push some random lines
+    std::shared_ptr<Line> pLine1 = std::make_shared<Line>(pAlgorithm, Point(99, 2), Point(20, 20), Colors::red);
+    queue->push(pLine1);
+    std::shared_ptr<Line> pLine2 = std::make_shared<Line>(pAlgorithm, Point(34, 2), Point(65, 84), Colors::blue);
+    queue->push(pLine2);
+    std::shared_ptr<Line> pLine3 = std::make_shared<Line>(pAlgorithm, Point(7, 2), Point(56, 20), Colors::green);
+    queue->push(pLine3);
+    std::shared_ptr<Line> pLine4 = std::make_shared<Line>(pAlgorithm, Point(8, 34), Point(20, 87), Colors::black);
+    queue->push(pLine4);
+
+    // Finally generate the image
+    try
+    {
+        myImage.process(queue.get());
+    }
+    catch (Exception& exception)
+    {
+        std::cout << exception.displayText() << '\n';
+    }
+
+    return 0;
+}
+```
+
+This code demonstrates how to create a bitmap image with multiple colored lines using the Bitmap Image Generator. You can find this example in the examples/api/ directory of the repository.
 
 ## License
 
