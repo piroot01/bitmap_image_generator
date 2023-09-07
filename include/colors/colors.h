@@ -5,6 +5,10 @@
 #include "color.h"
 
 
+/**
+* @class Colors
+* @brief Class use to store various colors
+*/
 class Colors
 {
 public:
