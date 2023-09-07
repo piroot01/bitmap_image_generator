@@ -6,9 +6,9 @@
 #include "circular_counter_buffer/point_circular_counter_buffer.h"
 
 
-#define DEFAULT_COLLECTION_SIZE 1024
-
-
+/**
+* @brief Alias for PointCircularCounterBuffer
+*/
 using PointCollection = PointCircularCounterBuffer; 
 
 

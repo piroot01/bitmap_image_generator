@@ -9,12 +9,26 @@
 #include <memory>
 
 
+/**
+* @class LineAlgorithm
+* @brief Derived class from Algorithm
+*/
 class LineAlgorithm : public Algorithm
 {
 public:
+
+    /**
+    * @brief Default constructor
+    * @param pPointCollection shared pointer to PointCollection
+    */
     explicit LineAlgorithm(const std::shared_ptr<PointCollection> pPointCollection);
+
+    /**
+    * @brief Run virtual method
+    * @param parameters raw poiter to Parameters
+    * @return void
+    */
     virtual void run(const Parameters* pParameters) = 0;
-//    virtual void assignParameters(const Point& start, const Point& end, const uint32_t lineThickness) = 0;
 
 
 };

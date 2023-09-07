@@ -7,10 +7,25 @@
 #include <memory>
 
 
+/**
+* @class Algorithm
+* @brief Base class for algorithms
+*/
 class Algorithm
 {
 public:
+
+    /**
+    * @brief Default constructor
+    * @param pPointCollection shared pointer to PointCollection
+    */
     explicit Algorithm(const std::shared_ptr<PointCollection> pPointCollection);
+
+    /**
+    * @brief Run virutal method
+    * @param parameters raw poiter to Parameters
+    * @return void
+    */ 
     virtual void run(const Parameters* parameters) = 0;
 
 protected:
