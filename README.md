@@ -14,7 +14,7 @@ Bitmap Image Generator is a C++ program that allows you to create bitmap images 
 
 The documentation for this project is generated using Doxygen. You can generate the documentation by running the following command:
 
-doxygen config
+    doxygen config
 
 The documentation will be generated inside the 'doc' directory.
 
