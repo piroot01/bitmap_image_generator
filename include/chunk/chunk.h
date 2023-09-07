@@ -10,23 +10,103 @@
 #include <vector>
 
 
+/**
+* @class Chunk
+* @brief Base templated class
+*/
 template<typename T>
 class Chunk
 {
 public:
+    /**
+    * @brief Default constructor
+    */
     Chunk();
+
+    /**
+    * @brief Default destructor
+    */
     ~Chunk();
+
+    /**
+    * @brief setSize
+    * @param size set the size of the chunk
+    * @return void
+    */
     void setSize(const uint32_t size);
+
+    /**
+    * @brief push
+    * @param value
+    * @return void
+    */
     void push(const T& value);
+
+    /**
+    * @brief size
+    * @return uint32_t the size of the chunk
+    */
     uint32_t size() const;
+
+    /**
+    * @brief get
+    * @param index must be ledd than the chunk size
+    * @return std::shared_ptr<T>
+    */
     std::shared_ptr<T> get(const uint32_t index) const;
+
+    /**
+    * @brief get
+    * @param index must be ledd than the chunk size
+    * param value reference to a value in which the result will be stored
+    * @return void
+    */
     void get(const uint32_t index, T& value) const;
+
+    /**
+    * @brief set
+    * @param index must be ledd than the chunk size
+    * @param value const reference
+    * @return void
+    */
     void set(const uint32_t index, const T& value);
+
+    /**
+    * @brief reserve
+    * @param size
+    * @return void
+    * @detail It uses reserve() method
+    */
     void reserve(const uint32_t size);
+
+    /**
+    * @brief clear
+    * @return void
+    * @detail It uses clear() method
+    */
     void clear();
+
+    /**
+    * @brief begin
+    * @return iterator
+    */
     typename std::vector<T>::iterator begin();
+
+    /**
+    * @brief end
+    * @return iterator
+    */
     typename std::vector<T>::iterator end();
+
+    /**
+    * @brief Copy assign constructor
+    * @return Chunk&
+    */
     Chunk& operator=(const Chunk&) = delete;
+
+    /**
+    * @brief Copy constructor
+    */
     Chunk(const Chunk& chunk);
 
 private:
