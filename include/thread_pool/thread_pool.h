@@ -11,10 +11,11 @@
 #include <cstdint>
 #include <functional>
 
-// temp
-#include <iostream>
 
-
+/**
+* @class ProcessingStrategy
+* @brief Used in Thread pool to determine from which end of the queue the tasks will be processed
+*/
 enum class ProcessingStrategy
 {
     POP_BACK,
@@ -22,19 +23,66 @@ enum class ProcessingStrategy
 };
 
 
+/**
+* @class ThreadPool
+* @brief Used to compute queue of task in concurrent manner
+* @detail it has STRATEGY template to determine the processing direction
+*/
 template<ProcessingStrategy STRATEGY = ProcessingStrategy::POP_BACK>
 class ThreadPool
 {
 public:
+
+    /**
+    * @brief Constructor
+    * @param threadCount if not set the hardware_concurrency will be used
+    */
     explicit ThreadPool(const uint32_t threadCount = 0);
+
+    /**
+    * @brief Copy constructor is deleted
+    */
     ThreadPool(const ThreadPool& other) = delete;
+
+    /**
+    * @brief Move constructor is deleted
+    */
     ThreadPool(const ThreadPool&& other) = delete;
+
+    /**
+    * @brief Copy assign constructor is deleted
+    */
     ThreadPool& operator=(const ThreadPool& other) = delete;
+
+    /**
+    * @brief Move assign constructor is deleted
+    */
     ThreadPool& operator=(const ThreadPool&& other) = delete;
+
+    /**
+    * @brief Destructor
+    * @detail if the threadPool is not shut down it will be in the time of destruction
+    */
     ~ThreadPool();
 
+    /**
+    * @brief init starts the processing of the queue
+    * @return void
+    */
     void init();
+
+    /**
+    * @brief shutdown it joins all threads 
+    * @return void
+    */
     void shutdown();
+
+    /**
+    * @brief enqueue
+    * @param f is functor
+    * @param args list or functor arguments
+    * @return std::future
+    */
     template<typename F, typename... Args> requires std::invocable<F, Args...>
     [[nodiscard]] auto enqueue(F&& f, Args&&... args) -> std::future<std::invoke_result_t<F&&, Args&&...>>;
 

@@ -7,22 +7,76 @@
 #include <optional>
 
 
+/**
+* @class ThreadSafeQueue
+* @brief Essentially a queue that is possible to acces with multiple consurrent threads
+* @detail It require the data typename and the mutex type is optional (default is std::mutex)
+*/
 template<typename T, typename Lock = std::mutex>
 class ThreadSafeQueue
 {
 public:
+
+    /**
+    * @cbrief Default constructor
+    */
     ThreadSafeQueue() = default;
+
+    /**
+    * @cbrief Copy constructor is deleted
+    */
     ThreadSafeQueue(const ThreadSafeQueue& other) = delete;
+
+    /**
+    * @cbrief Copy assign constructor is deleted
+    */
     ThreadSafeQueue& operator=(const ThreadSafeQueue& other) = delete;
+
+    /**
+    * @cbrief Move constructor
+    * @detail The mutex is not moved
+    */
     ThreadSafeQueue(const ThreadSafeQueue&& other);
+
+    /**
+    * @cbrief Move assign constructor
+    * @detail The mutex is not moved
+    */
     ThreadSafeQueue& operator=(const ThreadSafeQueue&& other);
+
+    /**
+    * @brief Default destructor
+    */
     virtual ~ThreadSafeQueue() = default;
 
+    /**
+    * @cbrief pushBack
+    * @param value is rvalue
+    */
     void pushBack(T&& value);
+
+    /**
+    * @cbrief pushFront
+    * @param value is rvalue
+    */
     void pushFront(T&& value);
 
+    /**
+    * @cbrief empty
+    * @return bool if the queue is empty than it is true
+    */
     [[nodiscard]] bool empty() const;
+
+    /**
+    * @cbrief popBack
+    * @return std::optional<T> if other thread steals the item from queue and the queue is empty then the optional is nullopt
+    */
     [[nodiscard]] std::optional<T> popBack();
+
+    /**
+    * @cbrief popFront
+    * @return std::optional<T> if other thread steals the item from queue and the queue is empty then the optional is nullopt
+    */
     [[nodiscard]] std::optional<T> popFront();
 
 private:
