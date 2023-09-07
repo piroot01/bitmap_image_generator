@@ -7,24 +7,105 @@
 #include <cstdint>
 
 
+/**
+* @class Exception
+* @brief Base class for all exceptions
+*/
 class Exception : public std::exception
 {
 public:
+
+    /**
+    * @brief Default constructor
+    * @param message
+    * @parame code
+    */
     Exception(const std::string& message, uint32_t code = 0);
-    Exception(const std::string& message, const std::string& argumet, uint32_t code = 0);
+
+    /**
+    * @brief Default constructor
+    * @param message
+    * @param argument
+    * @parame code
+    */
+    Exception(const std::string& message, const std::string& argument, uint32_t code = 0);
+
+    /**
+    * @brief Default constructor
+    * @param message
+    * @param nested stores a clone
+    * @parame code
+    */
     Exception(const std::string& message, const Exception& nested, uint32_t code = 0);
+
+    /**
+    * @brief Destructor
+    */
     ~Exception() noexcept;
+
+    /**
+    * @brief Copy constructor
+    */
     Exception(const Exception& exception);
+
+    /**
+    * @brief Copy assign constructor
+    */
     Exception& operator=(const Exception& exception);
     
+    /**
+    * @brief name
+    * @return const chat* static string describing the class
+    */
     virtual const char* name() const noexcept;
+
+    /**
+    * @brief className
+    * @return const char* name of the exception class
+    */
     virtual const char* className() const noexcept;
+
+    /**
+    * @brief what
+    * @return const chat* same as name(), mades for compatabiliry with std::except
+    */
     virtual const char* what() const noexcept;
+
+    /**
+    * @brief nested
+    * @return Exception*raw pointer to the nested exception
+    */
     const Exception* nested() const;
+
+    /**
+    * @brief message
+    * @return const std::string& the name of the message
+    */
     const std::string& message() const;
+
+    /**
+    * @brief code
+    * @return uint32_t the code of the exception
+    */
     uint32_t code() const;
+
+    /**
+    * @brief displayText
+    * @return std::string returns the exception name and the message
+    */
     std::string displayText() const;
+
+    /**
+    * @brief clone
+    * @return Exception* raw pointer to exact copy of the exception
+    */
     virtual Exception* clone() const;
+
+    /**
+    * @brief rethrow
+    * @detail rethrows this exception
+    * @return void
+    */
     virtual void rethrow() const;
 
 protected:
