@@ -6,11 +6,32 @@
 #include "image/image.h"
 
 
+/**
+* @class ImageTaskManagerPreparator
+* @brief Prepares the data for ImageTaskManager
+*/
 class ImageTaskManagerPreparator
 {
 public:
+
+    /**
+    * @brief Constructor
+    * @param chunkBaseSize
+    * @param image
+    * @param pixelSet
+    */
     explicit ImageTaskManagerPreparator(const size_t chunkBaseSize, const Image& image, const PixelSet& pixelSet);
+
+    /**
+    * @brief run prepares the parameters
+    * @return void
+    */
     void run();
+
+    /**
+    * @brief getParameters
+    * return const ImageTaskManagerPreparatorParameters&
+    */
     const ImageTaskManagerPreparatorParameters& getParameters() const;
 
 private:
