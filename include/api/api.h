@@ -9,14 +9,40 @@
 #include "managers/image_task_manager.h"
 
 
+/**
+* @class Api
+* @brief Templated class used as an interface for the program
+*/
 template<uint32_t ChunkSize = 0, uint32_t ThreadNum = 2>
 class Api
 {
 public:
+
+    /**
+    * @brief Constructor
+    * @param pImage raw pointer to an image object
+    */
     explicit Api(const Image* pImage);
+
+    /**
+    * @brief Constructor
+    * @param width width of the image
+    * @param height height of the image
+    */
     explicit Api(const uint32_t width, const uint32_t height);
+
+    /**
+    * @brief Constructor
+    * @param fileName name of the output file
+    * @param width width of the image
+    * @param height height of the image
+    */
     explicit Api(const std::string& fileName, const uint32_t width, const uint32_t height);
 
+    /**
+    * @brief Process the queue and generates the image
+    * @param pQueue raw pointer to a queue
+    */
     void process(const DrawableObjectsQueue* pQueue) const;
 
 private:
