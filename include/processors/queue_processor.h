@@ -7,10 +7,24 @@
 #include "image_objects/pixel_set.h"
 
 
+/**
+* @class QueueProcessor
+* @brief Processes the queue of DrawableObjects
+*/
 class QueueProcessor
 {
 public:
+
+    /**
+    * @brief Consttructor
+    * @params queue
+    */
     explicit QueueProcessor(const DrawableObjectsQueue& queue);
+
+    /**
+    * @brief process
+    * @params pixelSet
+    */
     void process(PixelSet& pixelSet) const;
 
 private:
