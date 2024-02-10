@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -O1")
 set(CMAKE_BUILD_TYPE Debug)
 
+
 add_subdirectory(src)
 add_subdirectory(examples/simple_image)
 add_subdirectory(examples/black_and_white)
