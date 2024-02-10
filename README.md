@@ -50,6 +50,7 @@ Here's an example of how to use the Bitmap Image Generator in your C++ code:
 #include "colors/colors.h"
 #include <iostream>
 
+
 int main()
 {
     // Time the whole program
