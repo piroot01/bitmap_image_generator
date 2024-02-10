@@ -1,4 +1,5 @@
 build
+tar
 doc/html
 doc/latex
 .cache
